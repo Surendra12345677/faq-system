@@ -19,7 +19,7 @@ class CacheService {
 
         this.client.on("error", (err) => {
             if (err.code === "ECONNREFUSED") {
-                console.warn("Redis connection failed - ensure Redis server is running")
+                console.warn("Redis connection failed")
             } else {
                 console.error("Redis error:", err.message)
             }
@@ -30,7 +30,7 @@ class CacheService {
         })
 
         this.client.on("reconnecting", () => {
-            console.log("Attempting to reconnect to Redis...")
+            console.log("reconnect to Redis...")
         })
 
         // Track connection state
@@ -43,7 +43,7 @@ class CacheService {
                 await this.client.connect()
                 this.isConnected = true
             } catch (err) {
-                console.warn("Failed to connect to Redis, using fallback mode")
+                console.warn("Failed to connect to Redis")
                 this.isConnected = false
             }
         }
@@ -83,7 +83,7 @@ class CacheService {
                 this.isConnected = false
                 console.log("Redis disconnected")
             } catch (err) {
-                console.error("Error while disconnecting Redis:", err.message)
+                console.error("Error disconnecting Redis:", err.message)
             }
         }
     }

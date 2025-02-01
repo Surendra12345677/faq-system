@@ -42,9 +42,9 @@ app.get("/health", (req, res) => {
 })
 
 // API routes
-app.use("/api/faqs", faqRoutes)
+app.use("/api/faqs/", faqRoutes)
 
-// API 404 handler - for api routes only
+// API 404 handler 
 app.use("/api/*", (req, res) => {
   res.status(404).json({ 
     error: "API endpoint not found",
@@ -56,7 +56,7 @@ app.use("/api/*", (req, res) => {
   })
 })
 
-// Generic 404 handler - for all other routes
+// Generic 404 handler 
 app.use("*", (req, res) => {
   // If request expects JSON
   if (req.accepts('json')) {
