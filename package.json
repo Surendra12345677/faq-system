@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -19,12 +22,16 @@
   "homepage": "https://github.com/Surendra12345677/faq-system#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.1",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.6",
+    "redis": "^4.7.0",
     "sanitize-html": "^2.14.0"
   },
   "devDependencies": {

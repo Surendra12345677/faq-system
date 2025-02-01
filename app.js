@@ -1,26 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-
-dotenv.config();
+require('dotenv').config();
 
 const app = express();
-const FAQRoutes = require('./src/routes/faq.routes');
+const faqRoutes = require('./src/routes/faq.routes');
 
 // Middleware
 app.use(express.json());
 
-// Database Connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 // Routes
-app.use('/api/faqs', FAQRoutes);
+app.use('/api/faqs', faqRoutes);
 
+// Database connection
+mongoose.connect('mongodb://localhost:27017/faqdb')
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((err) => console.error('MongoDB connection error:', err));
+
+// Ensure you're listening on 0.0.0.0 to accept external connections
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
 
