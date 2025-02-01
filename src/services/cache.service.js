@@ -51,6 +51,7 @@ class CacheService {
 
     async get(key) {
         try {
+          await this.connect()
             if (!this.isConnected) {
                 return null
             }
@@ -63,6 +64,7 @@ class CacheService {
 
     async set(key, value, expiration = 3600) {
         try {
+          await this.connect()
             if (!this.isConnected) {
                 return false
             }
