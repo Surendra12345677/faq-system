@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Surendra12345677/faq-system#readme",
   "dependencies": {
+    "@google-cloud/translate": "^8.5.0",
     "@vitalets/google-translate-api": "^9.2.1",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
@@ -33,7 +34,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.6",
     "redis": "^4.7.0",
-    "sanitize-html": "^2.14.0"
+    "sanitize-html": "^2.14.0",
+    "supertest": "^7.0.0"
   },
   "devDependencies": {
     "chai": "^5.1.2",

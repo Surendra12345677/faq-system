@@ -82,7 +82,7 @@ app.use((err, req, res, next) => {
 // DB connection
 async function connectDB() {
   try {
-    const dbUrl = process.env.MONGO_URI || "mongodb://localhost:27017/faqdb"
+    const dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/faqdb"
     await mongoose.connect(dbUrl)
     console.log("Connected to MongoDB")
   } catch (err) {
@@ -115,3 +115,4 @@ process.on("SIGINT", async () => {
 startServer()
 
 module.exports = app
+

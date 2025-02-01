@@ -2,7 +2,6 @@ const { createClient } = require("redis")
 
 class CacheService {
     constructor() {
-        // Allow configuration via environment variables
         const redisUrl = process.env.REDIS_URL || "redis://localhost:6379"
         
         this.client = createClient({
@@ -99,3 +98,5 @@ process.on("SIGINT", async () => {
 })
 
 module.exports = cacheService
+
+
